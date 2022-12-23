@@ -1,0 +1,11 @@
+check all if else returns (if == Yes what about No or an invalid option )
+add all documentation
+improve account security and prevent double account creation or multiple account login after ban
+add option for huid ban
+add option for ip ban
+add option for time ban
+add option to delete a license and send a mail to user on license cancelation
+add an option to receive activity if money was sent to me ( by other user)
+add an option to receive activity ( if money was requested by other user)
+add an option to add phone number or a crypto address ( multi strings joined to prevent identity from leaking)
+add refile create (data file) if delete or tempered
