@@ -1,6 +1,8 @@
 import os
 import zipfile
 import sys
+import time
+from time import sleep
 from subprocess import call
 from pymongo import MongoClient , errors
 import wget
@@ -27,22 +29,27 @@ new_update,download=version_checker()
 
 print(f'updating to latest version {new_update}')
 wget.download(download)
-restart_confirmation=input('\n To impliment the new update a restart is required Y/N ')
+restart_confirmation='Y'
 if(restart_confirmation=='Y'):
   file_name= os.path.basename(sys.argv[0])
   if(os.path.exists("marketplace.py")==True):
-   os.remove('marketplace.py')
    print("removing old files")
+   os.remove('marketplace.py')
+   sleep(2)
+   print("removed old files")
   else:
      pass
   with zipfile.ZipFile('marketplace.zip','r') as zip_object:
       print("Extracting packages")
+      sleep(2)
       zip_object.extractall()
       zip_object.close()
-      print("Updated!")
+      print("Extracted!")
+      sleep(1)
       if(os.path.exists("marketplace.zip")==True):
-       os.remove('marketplace.zip')
        print("removing old downloaded files")
+       os.remove('marketplace.zip')
+       sleep(2)
       else:
          pass
       call(['python','marketplace.py'])

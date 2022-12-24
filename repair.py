@@ -3,6 +3,8 @@ from subprocess import call
 from pymongo import MongoClient , errors
 import wget
 import zipfile
+import time 
+from time import sleep
 cluster="mongodb+srv://xavierlol:01632987@cluster0.usjq3sl.mongodb.net/LOGINDATA?retryWrites=true&w=majority"
 client = MongoClient(cluster)
 db = client['S']
@@ -33,10 +35,14 @@ if(pending>=1):
  new_update,download=version_checker()
  print("downloading files ")
  wget.download(download) 
+ sleep(2)
+ print("downloaded all files")
  with zipfile.Zipfile('marketplace.zip','r') as zip:
      print("extracting files")
+     sleep(2)
      zip.extractall()
      print("Extracted")
+     sleep(1)
      if(os.path.exists('marketplace.zip')==True):
         os.remove('marketplace.zip')
         print("repaired one file ")
@@ -60,10 +66,14 @@ if(pending==2):
  new_update,download=version_checker()
  print("downloading files ")
  wget.download(download) 
+ print('downloaded all files')
+ sleep(1)
  with zipfile.Zipfile('updater.zip','r') as zip:
      print("extracting files")
+     sleep(2)
      zip.extractall()
      print("Extracted")
+     sleep(1)
      if(os.path.exists('updater.zip')==True):
         os.remove('updater.zip')
         print("repaired one file ")
