@@ -30,11 +30,21 @@ wget.download(download)
 restart_confirmation=input('\n To impliment the new update a restart is required Y/N ')
 if(restart_confirmation=='Y'):
   file_name= os.path.basename(sys.argv[0])
-  os.remove('marketplace.py')
+  if(os.path.exists("marketplace.py")==True):
+   os.remove('marketplace.py')
+   print("removing old files")
+  else:
+     pass
   with zipfile.ZipFile('marketplace.zip','r') as zip_object:
       print("Extracting packages")
       zip_object.extractall()
       zip_object.close()
       print("Updated!")
-      os.remove('marketplace.zip')
+      if(os.path.exists("marketplace.zip")==True):
+       os.remove('marketplace.zip')
+       print("removing old downloaded files")
+      else:
+         pass
       call(['python','marketplace.py'])
+      
+exit()
