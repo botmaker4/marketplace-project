@@ -456,7 +456,11 @@ def check_license_key(license):
 #----CONNECTION SYSTEM----#                       
 check = check_db()
 if(check==True):
-   
+  
+ print(connection_true)
+ if(os.path.exists("updater.py")==False):
+    call(['python','repair.py'])
+    exit() 
  def version_checker():
    for x in version.find({'code':'001'},{'_id':0}):
     x=x
@@ -469,8 +473,8 @@ if(check==True):
  new_update,download=version_checker()
  if(current_update!=new_update):
     call(['python','updater.py'])
-    
- print(connection_true)
+    exit()
+
  # Define email sender and receiver
  email_sender = 'shourya.development.studio@gmail.com'
  email_password = "geayouagpimwcbvp"
