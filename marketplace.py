@@ -28,7 +28,7 @@ context = ssl.create_default_context()
 os.system('')
 current_update='1.0'
 colorama.init(autoreset=True)
-cluster="mongodb+srv://xavierlol:01632987@cluster0.usjq3sl.mongodb.net/LOGINDATA?retryWrites=true&w=majority"
+cluster="DISCONTINUED"
 time_create=date.today()
 client = MongoClient(cluster)
 db = client['S']
@@ -476,8 +476,8 @@ if(check==True):
     exit()
 
  # Define email sender and receiver
- email_sender = 'shourya.development.studio@gmail.com'
- email_password = "geayouagpimwcbvp"
+ email_sender = 'DISCONTINUED'
+ email_password = "DISCONTINUED"
  em = EmailMessage()
  em['From'] = email_sender
  
